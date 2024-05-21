@@ -5,6 +5,9 @@ pipeline {
         stage('Build') {
             steps {
                 sh """
+                ls -lrta
+                echo "reading..."
+                cat README.md
                 sleep 360
                 """
                 echo 'Building..'
