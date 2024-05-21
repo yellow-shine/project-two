@@ -4,6 +4,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh """
+                sleep 360
+                """
                 echo 'Building..'
             }
         }
