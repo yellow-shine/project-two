@@ -1,6 +1,6 @@
 pipeline {
       agent {
-            label 'arm'
+            label 'arm64'
         }
     stages {
         stage('Build') {
