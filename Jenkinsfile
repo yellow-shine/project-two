@@ -1,28 +1,11 @@
 pipeline {
-      agent {
-            label 'arm64'
-        }
-    stages {
-        stage('Build') {
-            steps {
-                sh """
-                ls -lrta
-                echo "reading..."
-                cat README.md
-                sleep 360
-                """
-                echo 'Building..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
+  agent any
+  stages {
+    stage('Stage') {
+      steps {
+        checkout scm
+        tektonCreateRaw(inputType: 'FILE', input: '.tekton/pipeline.yaml')
+      }
     }
+  }
 }
