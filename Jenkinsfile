@@ -4,10 +4,7 @@ pipeline {
     stage('Stage') {
       steps {
         sh """
-        	echo \$CHANGE_TARGET 
-        	echo \$BRANCH_NAME 
-        	echo \$GIT_BRANCH 
-        	echo \$GIT_URL 
+          env
 
         """
         // checkout scm
