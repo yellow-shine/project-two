@@ -1,10 +1,13 @@
 pipeline {
   agent any
-  options { skipDefaultCheckout() }
+  options {
+      disableConcurrentBuilds(abortPrevious: env.CHANGE_ID != null)
+  }
   stages {
     stage('Stage') {
       steps {
         sh """
+        sleep 10
           env
 
         """
